@@ -36,6 +36,108 @@ public class SunocoGUI extends JFrame {
         pnlNorth.setBorder(BorderFactory.createRaisedBevelBorder());
         add(pnlNorth, BorderLayout.NORTH);
 
+        //------------------- Center Panel ---------------------
+        JPanel pnlCenter = new JPanel(new GridLayout(0,1));
+
+            // panel to store the sales amount
+            JPanel pnlCenterSale = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 0));
+
+            // Price labels
+            JLabel lblHundreds = new JLabel("1");
+            JLabel lblTens = new JLabel("3");
+            JLabel lblOnes = new JLabel("5");
+            JLabel lblCentOne = new JLabel("9");
+            JLabel lblCentTwo = new JLabel("9");
+
+            // Set the font for labels
+            lblHundreds.setFont(QUANTITY_FONT_LARGE);
+            lblTens.setFont(QUANTITY_FONT_LARGE);
+            lblOnes.setFont(QUANTITY_FONT_LARGE);
+            lblCentOne.setFont(QUANTITY_FONT_SMALL);
+            lblCentTwo.setFont(QUANTITY_FONT_SMALL);
+
+            // Add the sales amount to the pnlCenterSale panel
+            pnlCenterSale.add(lblHundreds);
+            pnlCenterSale.add(lblTens);
+            pnlCenterSale.add(lblOnes);
+            pnlCenterSale.add(lblCentOne);
+            pnlCenterSale.add(lblCentTwo);
+
+            // Add border to the sales
+            pnlCenterSale.setBorder(BorderFactory.createRaisedBevelBorder());
+
+        // Add the Sales Amount to Center Panel
+        pnlCenter.add(pnlCenterSale);
+
+            // store the sales label
+            JPanel pnlCenterSalesLabel = new JPanel();
+            JLabel lblSalesLabel = new JLabel("This Sale $", SwingConstants.CENTER);
+            lblSalesLabel.setFont(LABEL_FONT_NORMAL);
+            pnlCenterSalesLabel.add(lblSalesLabel);
+
+        // Add the Sales Label to Center Panel
+        pnlCenter.add(pnlCenterSalesLabel);
+
+            // panel to store the quantity of gas being pumped
+            JPanel pnlCenterQuantity = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 0));
+
+            // Quantity labels
+            JLabel lblLitreHundreds = new JLabel("0");
+            JLabel lblLitreTens = new JLabel("9");
+            JLabel lblLitreOnes = new JLabel("5");
+            JLabel lblLitreCentOne = new JLabel("9");
+            JLabel lblLitreCentTwo = new JLabel("9");
+
+            // set the font for labels
+            lblLitreHundreds.setFont(QUANTITY_FONT_LARGE);
+            lblLitreTens.setFont(QUANTITY_FONT_LARGE);
+            lblLitreOnes.setFont(QUANTITY_FONT_LARGE);
+            lblLitreCentOne.setFont(QUANTITY_FONT_SMALL);
+            lblLitreCentTwo.setFont(QUANTITY_FONT_SMALL);
+
+            // Add the quantity to the pnlCenterQuantity panel
+            pnlCenterQuantity.add(lblLitreHundreds);
+            pnlCenterQuantity.add(lblLitreTens);
+            pnlCenterQuantity.add(lblLitreOnes);
+            pnlCenterQuantity.add(lblLitreCentOne);
+            pnlCenterQuantity.add(lblLitreCentTwo);
+
+            // Add the quantity panel to the frame
+            pnlCenterQuantity.setBorder(BorderFactory.createRaisedBevelBorder());
+
+        // Add the Quantity info to the Center Panel
+        pnlCenter.add(pnlCenterQuantity);
+
+            // store the quantity label
+            JPanel pnlCenterQuantityLabel = new JPanel();
+            JLabel lblQuantityLabel = new JLabel("Litres", SwingConstants.CENTER);
+            lblQuantityLabel.setFont(LABEL_FONT_NORMAL);
+            pnlCenterQuantityLabel.add(lblQuantityLabel);
+
+        // Add the quantity label to Center Panel
+        pnlCenter.add(pnlCenterQuantityLabel);
+
+            // store the price per litre label
+            JPanel pnlCenterPricePerLitre = new JPanel();
+            JLabel lblPricePerLitre = new JLabel("0.00", SwingConstants.CENTER);
+            lblPricePerLitre.setFont(QUANTITY_FONT_SMALL);
+            pnlCenterPricePerLitre.add(lblPricePerLitre);
+
+        // Add the Price per litre info to the center panel
+        pnlCenter.add(pnlCenterPricePerLitre);
+
+            // store the quantity label
+            JPanel pnlCenterPricePerLitreLabel = new JPanel();
+            JLabel lblPricePerLitreLabel = new JLabel("Price Per Litre \u00A2", SwingConstants.CENTER);
+            lblPricePerLitreLabel.setFont(LABEL_FONT_NORMAL);
+            pnlCenterPricePerLitreLabel.add(lblPricePerLitreLabel);
+
+        // Add the Price per litre label to the center panel
+        pnlCenter.add(pnlCenterPricePerLitreLabel);
+
+        // Add the Central panel to the main frame
+        add(pnlCenter, BorderLayout.CENTER);
+
 
     } // generateGUI
 
