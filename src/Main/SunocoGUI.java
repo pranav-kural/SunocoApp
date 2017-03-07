@@ -1,6 +1,7 @@
 package Main;
 
 import javax.swing.*;
+import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 
 // Sunoco App GUI class
@@ -38,6 +39,7 @@ public class SunocoGUI extends JFrame {
 
         //------------------- Center Panel ---------------------
         JPanel pnlCenter = new JPanel(new GridLayout(0,1));
+        pnlCenter.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
 
             // panel to store the sales amount
             JPanel pnlCenterSale = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 0));
@@ -138,6 +140,21 @@ public class SunocoGUI extends JFrame {
         // Add the Central panel to the main frame
         add(pnlCenter, BorderLayout.CENTER);
 
+        //------------------- West Panel ---------------------
+        JPanel pnlWest = new JPanel();
+        JLabel lblWest = new JLabel("");
+        lblWest.setFont(QUANTITY_FONT_SMALL);
+        pnlWest.add(lblWest);
+        pnlWest.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
+        add(pnlWest, BorderLayout.WEST);
+
+        //------------------- East Panel ---------------------
+        JPanel pnlEast = new JPanel();
+        JLabel lblEast = new JLabel("");
+        lblEast.setFont(QUANTITY_FONT_SMALL);
+        pnlEast.add(lblEast);
+        pnlEast.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
+        add(pnlEast, BorderLayout.EAST);
 
     } // generateGUI
 
