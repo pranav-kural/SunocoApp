@@ -1,10 +1,14 @@
 package Main;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.SoftBevelBorder;
 import java.awt.*;
 
-// Sunoco App GUI class
+/**
+ * Sunoco GUI Application
+ * @author Pranav Kural
+ */
 public class SunocoGUI extends JFrame {
 
     private final Font LABEL_FONT_NORMAL = new Font("Open Sans", Font.BOLD, 20);
@@ -160,68 +164,98 @@ public class SunocoGUI extends JFrame {
         JPanel pnlSouth = new JPanel(new BorderLayout());
         pnlSouth.setBorder(BorderFactory.createRaisedBevelBorder());
 
-        //------------- South Panel North section -------------
-        JPanel pnlSouthNorth = new JPanel(new GridLayout(2,3));
-        pnlSouthNorth.setBorder(BorderFactory.createRaisedBevelBorder());
+            //------------- South Panel North section -------------
+            JPanel pnlSouthNorth = new JPanel(new GridLayout(2,3));
+            pnlSouthNorth.setBorder(BorderFactory.createRaisedBevelBorder());
 
-        // Text Fields to store the gas rate
-        JTextField txtRegularPrice = new JTextField(10);
-        JTextField txtPlusPrice = new JTextField(10);
-        JTextField txtSupremePrice = new JTextField(10);
+            // Text Fields to store the gas rate
+            JTextField txtRegularPrice = new JTextField(10);
+            JTextField txtPlusPrice = new JTextField(10);
+            JTextField txtSupremePrice = new JTextField(10);
 
-        // set the font of the text fields
-        txtRegularPrice.setFont(LABEL_FONT_NORMAL);
-        txtPlusPrice.setFont(LABEL_FONT_NORMAL);
-        txtSupremePrice.setFont(LABEL_FONT_NORMAL);
+            // set the font of the text fields
+            txtRegularPrice.setFont(LABEL_FONT_NORMAL);
+            txtPlusPrice.setFont(LABEL_FONT_NORMAL);
+            txtSupremePrice.setFont(LABEL_FONT_NORMAL);
 
-        // add padding to the text fields
-        txtRegularPrice.setMargin(new Insets(5, 0, 5, 0));
-        txtPlusPrice.setMargin(new Insets(5, 0, 5, 0));
-        txtSupremePrice.setMargin(new Insets(5, 0, 5, 0));
+            // add padding to the text fields
+            txtRegularPrice.setMargin(new Insets(5, 0, 5, 0));
+            txtPlusPrice.setMargin(new Insets(5, 0, 5, 0));
+            txtSupremePrice.setMargin(new Insets(5, 0, 5, 0));
 
-        // Set the text of text fields
-        txtRegularPrice.setText("99.05");
-        txtPlusPrice.setText("109.05");
-        txtSupremePrice.setText("119.05");
+            // Set the text of text fields
+            txtRegularPrice.setText("99.05");
+            txtPlusPrice.setText("109.05");
+            txtSupremePrice.setText("119.05");
 
-        // Buttons to select the gas type
-        JButton btnRegular = new JButton("Regular");
-        JButton btnPlus = new JButton("Plus");
-        JButton btnSupreme = new JButton("Supreme");
+            // Buttons to select the gas type
+            JButton btnRegular = new JButton("Regular");
+            JButton btnPlus = new JButton("Plus");
+            JButton btnSupreme = new JButton("Supreme");
 
-        // Add the controls to the pnlSouthNorth
-        pnlSouthNorth.add(txtRegularPrice);
-        pnlSouthNorth.add(txtPlusPrice);
-        pnlSouthNorth.add(txtSupremePrice);
-        pnlSouthNorth.add(btnRegular);
-        pnlSouthNorth.add(btnPlus);
-        pnlSouthNorth.add(btnSupreme);
+            // Add the controls to the pnlSouthNorth
+            pnlSouthNorth.add(txtRegularPrice);
+            pnlSouthNorth.add(txtPlusPrice);
+            pnlSouthNorth.add(txtSupremePrice);
+            pnlSouthNorth.add(btnRegular);
+            pnlSouthNorth.add(btnPlus);
+            pnlSouthNorth.add(btnSupreme);
 
         // Add the top part of south panel to the South panel
         pnlSouth.add(pnlSouthNorth, BorderLayout.NORTH);
 
-        //------------- South Panel South section -------------
-        JPanel pnlSouthSouth = new JPanel();
+            //------------- South Panel Center section -------------
+            JPanel pnlSouthCenter = new JPanel(new BorderLayout());
 
-        // Start and exit buttons
-        JButton btnStart = new JButton("Start");
-        JButton btnExit = new JButton("Exit");
+                // Center section top part
+                JPanel pnlSouthCenterTop = new JPanel();
+                JLabel lblPresetAmount = new JLabel("Preset Purchase Amount");
+                lblPresetAmount.setFont(LABEL_FONT_NORMAL);
+                pnlSouthCenterTop.add(lblPresetAmount);
 
-        // add the button to south section
-        pnlSouthSouth.add(btnStart);
-        pnlSouthSouth.add(btnExit);
+            pnlSouthCenter.add(pnlSouthCenterTop, BorderLayout.NORTH);
+
+                // Center section lower part
+                JPanel pnlSouthCenterLower = new JPanel(new GridLayout(1,1));
+
+                // Slider for presetting purchase amount
+                JSlider sliderPresetAmount = new JSlider(JSlider.HORIZONTAL, 0, 200, 0);
+
+                // Turn on labels at major tick marks
+                sliderPresetAmount.setMajorTickSpacing(25);
+                sliderPresetAmount.setMinorTickSpacing(5);
+                sliderPresetAmount.setPaintTicks(true);
+                sliderPresetAmount.setPaintLabels(true);
+                sliderPresetAmount.setFont(new Font("Open Sans", Font.BOLD, 13));
+                // add margins/padding to the slider control
+                sliderPresetAmount.setBorder(new EmptyBorder(0, 10, 5, 10));
+
+                // Add the slider to the center section
+                pnlSouthCenterLower.add(sliderPresetAmount);
+                pnlSouthCenterLower.setBorder(BorderFactory.createRaisedBevelBorder());
+
+
+            pnlSouthCenter.add(pnlSouthCenterLower, BorderLayout.CENTER);
+
+        // Add the center section to south panel
+        pnlSouth.add(pnlSouthCenter, BorderLayout.CENTER);
+
+            //------------- South Panel South section -------------
+            JPanel pnlSouthSouth = new JPanel();
+
+            // Start and exit buttons
+            JButton btnStart = new JButton("Start");
+            JButton btnExit = new JButton("Exit");
+
+            // add the button to south section
+            pnlSouthSouth.add(btnStart);
+            pnlSouthSouth.add(btnExit);
 
         // Add the bottom part of south panel
         pnlSouth.add(pnlSouthSouth, BorderLayout.SOUTH);
 
         // Add the South panel to the main frame
         add(pnlSouth, BorderLayout.SOUTH);
-
-
-
-        JPanel pnlSouthCenter = new JPanel();
-
-
 
     } // generateGUI
 
@@ -230,7 +264,7 @@ public class SunocoGUI extends JFrame {
         // create an instance of the Sunoco GUI
         SunocoGUI sunoco = new SunocoGUI();
         sunoco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        sunoco.setSize(550, 700);
+        sunoco.setSize(550, 650);
         sunoco.setVisible(true);
     } // main
 } // SunocoGUI
